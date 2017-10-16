@@ -1,0 +1,58 @@
+{
+    "name": "MailBlocks",
+    "lowCaseName": "mailblocks",
+    "description": "Build responsive email templates with MODX and ContentBlocks. This extra uses the MJML templating system: https://mjml.io and requires NodeJS to be installed on your server.",
+    "author": "Hugo Peek",
+    "version": "0.0.1",
+
+    "package": {
+        "elements": {
+            "chunks": [
+                {
+                    "name": "mbEmailSection",
+                    "description": "A layout segment for your email template. The columns are sized automatically, based on the amount of columns placed inside the section (the maximum amount being 4)."
+                },{
+                    "name": "mbEmailHeader",
+                    "description": "A simple heading text."
+                },{
+                    "name": "mbEmailText",
+                    "description": "Regular content copy, coming from a rich text field."
+                },{
+                    "name": "mbEmailButton",
+                    "description": "Links to places outside of the email. Can optionally contain a tracking URL."
+                },{
+                    "name": "mbEmailImage",
+                    "description": "An fixed width image, with a full URI to its source."
+                },{
+                    "name": "mbEmailIcon",
+                    "description": "An fixed width icon, with a full URI to its source."
+                },{
+                    "name": "mbEmailSocial",
+                    "description": "A row of social media icons. You can choose which channels to display (or hide)."
+                },{
+                    "name": "mbEmailDivider",
+                    "description": "A horizontal line for dividing content inside a section."
+                }
+            ],
+
+            "templates": [
+                {
+                    "name": "mbEmail"
+                }
+            ],
+
+            "snippets": [],
+
+            "plugins": [
+                {
+                    "name": "mjmlToHTML",
+                    "description": "This plugin executes a shell command on your webserver that transforms the MJML syntax of your email into HTML. Requires NodeJS and MJML to be installed."
+                }
+            ],
+
+            "categories": []
+        },
+
+        "systemSettings": []
+    }
+}
