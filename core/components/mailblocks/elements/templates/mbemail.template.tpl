@@ -1,0 +1,10 @@
+<mjml>
+    <mj-head>
+        <mj-preview>[[*longtitle]]</mj-preview>
+    </mj-head>
+    <mj-body>
+        <mj-container>
+            [[*content]]
+        </mj-container>
+    </mj-body>
+</mjml>
