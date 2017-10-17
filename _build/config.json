@@ -37,7 +37,8 @@
 
             "templates": [
                 {
-                    "name": "mbEmail"
+                    "name": "mbEmail",
+                    "icon": "icon-newspaper-o"
                 }
             ],
 
@@ -46,7 +47,8 @@
             "plugins": [
                 {
                     "name": "mjmlToHTML",
-                    "description": "This plugin executes a shell command on your webserver that transforms the MJML syntax of your email into HTML. Requires NodeJS and MJML to be installed."
+                    "description": "This plugin executes a shell command on your webserver that transforms the MJML syntax of your email into HTML. Requires NodeJS and MJML to be installed.",
+                    "events": ["OnDocFormSave"]
                 }
             ],
 

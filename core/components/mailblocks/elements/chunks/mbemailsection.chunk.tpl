@@ -2,8 +2,8 @@
             background-url="[[+background_image]]"
             background-size="cover"
             background-repeat="no-repeat">
-    [[+column_1]]
-    [[+column_2]]
-    [[+column_3]]
-    [[+column_4]]
+    [[+col_1]]
+    [[+col_2]]
+    [[+col_3]]
+    [[+col_4]]
 </mj-section>
