@@ -30,34 +30,40 @@ switch ($modx->event->name) {
             $modx->resourceIdentifier = $resource->get('id');
             $modx->elementCache = array();
 
-            // Parse
+            // Parse the MODX resource, template included
             $resourceOutput = $modx->resource->process();
             $modx->parser->processElementTags('', $resourceOutput, true, false, '[[', ']]', array(), $maxIterations);
             $modx->parser->processElementTags('', $resourceOutput, true, true, '[[', ']]', array(), $maxIterations);
 
 
-            // Save to temporary file
+            // Save parsed resource to temporary file
             $tempFile = tempnam(sys_get_temp_dir(), 'mjml_');
+            //chmod($tempFile, 0644);
 
             $handle = fopen($tempFile, 'w');
             fwrite($handle, $resourceOutput);
-            //fseek($temp, 0);
-            //echo fread($temp, 1024);
 
-            // do here something (OK)
-            $modx->log(modX::LOG_LEVEL_ERROR, 'Temp file "' . $tempFile . '"" created at ' . sys_get_temp_dir() );
-            //$modx->log(modX::LOG_LEVEL_ERROR, 'Temp file content: ' . fread($temp, 9999));
+            //$modx->log(modX::LOG_LEVEL_ERROR, 'Temp file "' . $tempFile . '"" created at ' . sys_get_temp_dir() );
 
 
-            //$validate = exec('mjml --validate ' . escapeshellarg($tempFile));
-            //$modx->log(modX::LOG_LEVEL_ERROR, 'Temp file validation error: ' . print_r($validate));
+            // Validate the MJML syntax
+            $output = array();
 
-            exec('mjml ' . escapeshellarg($tempFile) . ' -o /var/www/romanesco-nursery/_newsletter/test.html');
+            $cmd = exec('mjml --validate ' . escapeshellarg($tempFile) . ' 2>&1', $output, $return_value);
 
-            fclose($handle); // this removes the file
-            unlink($tempFile);
+            if ($output) {
+                foreach ($output as $line) {
+                    $modx->log(modX::LOG_LEVEL_ERROR, 'MJML error: ' . $line);
+                }
 
-            //$modx->log(modX::LOG_LEVEL_ERROR, 'Something fired. Content type: ' . $html);
+                $modx->event->output('Hi there user!');
+            }
+
+            // Output the HTML
+            //exec('mjml ' . escapeshellarg($tempFile) . ' -o /var/www/romanesco-nursery/_newsletter/test.html');
+
+            fclose($handle);
+            unlink($tempFile); // this removes the file
         }
 
         break;
