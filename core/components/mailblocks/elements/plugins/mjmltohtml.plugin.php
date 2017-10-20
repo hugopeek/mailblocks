@@ -9,15 +9,12 @@
  *
  */
 
-switch ($modx->event->name) {
-//    case 'OnBeforeDocFormSave':
-//
-//        $modx->event->output('Hi there user!');
-//
-//        break;
+$htmlPath = $modx->getOption('htmlPath', $scriptProperties, MODX_BASE_PATH . '_newsletter/');
+$fileName = $modx->resource->get('alias') . '.html';
 
+switch ($modx->event->name) {
     case 'OnDocFormSave':
-        if ($resource->get('content_type') == 9) {
+        if ($resource->get('content_type') == $scriptProperties['contentTypes']) {
 
             //$resource = $resource->get('content');
 
@@ -48,22 +45,21 @@ switch ($modx->event->name) {
 
             // Validate the MJML syntax
             $output = array();
-
-            $cmd = exec('mjml --validate ' . escapeshellarg($tempFile) . ' 2>&1', $output, $return_value);
-
-            if ($output) {
-                foreach ($output as $line) {
-                    $modx->log(modX::LOG_LEVEL_ERROR, 'MJML error: ' . $line);
-                }
-
-                $modx->event->output('Hi there user!');
-            }
+            exec('mjml --validate ' . escapeshellarg($tempFile) . ' 2>&1', $output, $return_value);
 
             // Output the HTML
-            //exec('mjml ' . escapeshellarg($tempFile) . ' -o /var/www/romanesco-nursery/_newsletter/test.html');
+            exec('mjml ' . escapeshellarg($tempFile) . ' -o ' . escapeshellarg($htmlPath) . escapeshellarg($fileName));
 
             fclose($handle);
             unlink($tempFile); // this removes the file
+
+            // Report any validation errors in log
+            if ($output) {
+                foreach ($output as $line) {
+                    $errorMsg .= "\n" . $line;
+                }
+                return (" MJML validation failed:" . $errorMsg);
+            }
         }
 
         break;
