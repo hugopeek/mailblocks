@@ -2,8 +2,22 @@
             background-url="[[+background_image]]"
             background-size="cover"
             background-repeat="no-repeat">
-    [[+col_1]]
-    [[+col_2]]
-    [[+col_3]]
-    [[+col_4]]
+    <mj-column>
+        [[+col_1]]
+    [[+col_2:notempty=`
+    </mj-column>
+    <mj-column>
+    `]]
+        [[+col_2]]
+    [[+col_3:notempty=`
+    </mj-column>
+    <mj-column>
+    `]]
+        [[+col_3]]
+    [[+col_4:notempty=`
+    </mj-column>
+    <mj-column>
+    `]]
+        [[+col_4]]
+    </mj-column>
 </mj-section>
