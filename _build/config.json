@@ -10,56 +10,56 @@
             "chunks": [
                 {
                     "name": "mbEmailSingleColumn",
-                    "description": "A layout segment for your email template, which is 100% wide.",
-                    "category": "mbSections"
+                    "description": "A layout segment for your email template, 100% wide.",
+                    "category": "mb_sections"
                 },{
                     "name": "mbEmailContentSidebar",
-                    "description": "A content area with a sidebar that is adjustable in width.",
-                    "category": "mbSections"
+                    "description": "A content area, followed by an adjustable width sidebar.",
+                    "category": "mb_sections"
                 },{
                     "name": "mbEmailSidebarContent",
                     "description": "A sidebar that is adjustable in width, plus a content area.",
-                    "category": "mbSections"
+                    "category": "mb_sections"
                 },{
                     "name": "mbEmailFourColumns",
                     "description": "Four equal width columns.",
-                    "category": "mbSections"
+                    "category": "mb_sections"
                 },{
                     "name": "mbEmailThreeColumns",
                     "description": "Three equal width columns.",
-                    "category": "mbSections"
+                    "category": "mb_sections"
                 },{
                     "name": "mbEmailTwoColumns",
                     "description": "To equal width columns.",
-                    "category": "mbSections"
+                    "category": "mb_sections"
                 },{
                     "name": "mbEmailHeader",
                     "description": "A simple heading text.",
-                    "category": "mbComponents"
+                    "category": "mb_components"
                 },{
                     "name": "mbEmailText",
                     "description": "Regular content copy, coming from a rich text field.",
-                    "category": "mbComponents"
+                    "category": "mb_components"
                 },{
                     "name": "mbEmailButton",
                     "description": "Links to places outside of the email. Can optionally contain a tracking URL.",
-                    "category": "mbComponents"
+                    "category": "mb_components"
                 },{
                     "name": "mbEmailImage",
                     "description": "An fixed width image, with a full URI to its source.",
-                    "category": "mbComponents"
+                    "category": "mb_components"
                 },{
                     "name": "mbEmailIcon",
                     "description": "An fixed width icon, with a full URI to its source.",
-                    "category": "mbComponents"
+                    "category": "mb_components"
                 },{
                     "name": "mbEmailSocial",
                     "description": "A row of social media icons. You can choose which channels to display (or hide).",
-                    "category": "mbComponents"
+                    "category": "mb_components"
                 },{
                     "name": "mbEmailDivider",
                     "description": "A horizontal line for dividing content inside a section.",
-                    "category": "mbComponents"
+                    "category": "mb_components"
                 }
             ],
 
@@ -91,9 +91,9 @@
 
             "categories": [
                 {
-                    "name": "mbSections"
+                    "name": "mb_sections"
                 },{
-                    "name": "mbComponents"
+                    "name": "mb_components"
                 }
             ]
         },
