@@ -65,8 +65,11 @@
 
             "templates": [
                 {
-                    "name": "mbEmail",
+                    "name": "mbEmailCampaign",
                     "icon": "icon-newspaper-o"
+                },{
+                    "name": "mbEmailTransactional",
+                    "icon": "icon-send"
                 }
             ],
 

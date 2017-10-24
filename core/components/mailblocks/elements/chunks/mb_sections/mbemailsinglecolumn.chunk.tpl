@@ -1,4 +1,4 @@
-<mj-section background-color="[[+background_color]]"
+<mj-section background-color="[[+background_color:default=`#ccc`]]"
             background-url="[[+background_image]]"
             background-size="cover"
             background-repeat="no-repeat">
