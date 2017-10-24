@@ -3,61 +3,61 @@
     "lowCaseName": "mailblocks",
     "description": "Build responsive email templates with MODX and ContentBlocks. This extra uses the MJML templating system: https://mjml.io and requires NodeJS to be installed on your server.",
     "author": "Hugo Peek",
-    "version": "0.0.3",
+    "version": "0.1.0",
 
     "package": {
         "elements": {
             "chunks": [
                 {
-                    "name": "mbEmailSingleColumn",
+                    "name": "mbSectionSingleColumn",
                     "description": "A layout segment for your email template, 100% wide.",
                     "category": "mb_sections"
                 },{
-                    "name": "mbEmailContentSidebar",
+                    "name": "mbSectionContentSidebar",
                     "description": "A content area, followed by an adjustable width sidebar.",
                     "category": "mb_sections"
                 },{
-                    "name": "mbEmailSidebarContent",
+                    "name": "mbSectionSidebarContent",
                     "description": "A sidebar that is adjustable in width, plus a content area.",
                     "category": "mb_sections"
                 },{
-                    "name": "mbEmailFourColumns",
+                    "name": "mbSectionFourColumns",
                     "description": "Four equal width columns.",
                     "category": "mb_sections"
                 },{
-                    "name": "mbEmailThreeColumns",
+                    "name": "mbSectionThreeColumns",
                     "description": "Three equal width columns.",
                     "category": "mb_sections"
                 },{
-                    "name": "mbEmailTwoColumns",
+                    "name": "mbSectionTwoColumns",
                     "description": "To equal width columns.",
                     "category": "mb_sections"
                 },{
-                    "name": "mbEmailHeader",
+                    "name": "mbContentHeader",
                     "description": "A simple heading text.",
                     "category": "mb_components"
                 },{
-                    "name": "mbEmailText",
+                    "name": "mbContentText",
                     "description": "Regular content copy, coming from a rich text field.",
                     "category": "mb_components"
                 },{
-                    "name": "mbEmailButton",
+                    "name": "mbContentButton",
                     "description": "Links to places outside of the email. Can optionally contain a tracking URL.",
                     "category": "mb_components"
                 },{
-                    "name": "mbEmailImage",
+                    "name": "mbContentImage",
                     "description": "An fixed width image, with a full URI to its source.",
                     "category": "mb_components"
                 },{
-                    "name": "mbEmailIcon",
+                    "name": "mbContentIcon",
                     "description": "An fixed width icon, with a full URI to its source.",
                     "category": "mb_components"
                 },{
-                    "name": "mbEmailSocial",
+                    "name": "mbContentSocial",
                     "description": "A row of social media icons. You can choose which channels to display (or hide).",
                     "category": "mb_components"
                 },{
-                    "name": "mbEmailDivider",
+                    "name": "mbContentDivider",
                     "description": "A horizontal line for dividing content inside a section.",
                     "category": "mb_components"
                 }
@@ -65,10 +65,10 @@
 
             "templates": [
                 {
-                    "name": "mbEmailCampaign",
+                    "name": "mbCampaign",
                     "icon": "icon-newspaper-o"
                 },{
-                    "name": "mbEmailTransactional",
+                    "name": "mbTransactional",
                     "icon": "icon-send"
                 }
             ],
