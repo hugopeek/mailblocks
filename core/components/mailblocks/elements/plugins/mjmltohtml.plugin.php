@@ -9,7 +9,7 @@
  *
  */
 
-$htmlPath = $modx->getOption('htmlPath', $scriptProperties, MODX_BASE_PATH . '_newsletter/');
+$htmlPath = $modx->getOption('htmlPath', null, MODX_BASE_PATH . '_newsletter/');
 $fileName = $modx->resource->get('alias') . '.html';
 
 switch ($modx->event->name) {
@@ -48,13 +48,13 @@ switch ($modx->event->name) {
             exec('mjml --validate ' . escapeshellarg($tempFile) . ' 2>&1', $output, $return_value);
 
             // Output the HTML
-            exec('mjml ' . escapeshellarg($tempFile) . ' -o ' . escapeshellarg($htmlPath) . escapeshellarg($fileName));
+            exec('mjml -r ' . escapeshellarg($tempFile) . ' -o ' . escapeshellarg($htmlPath . $fileName));
 
             fclose($handle);
             unlink($tempFile); // this removes the file
 
             // Report any validation errors in log
-            if ($output) {
+            if (array_filter($output)) {
                 foreach ($output as $line) {
                     $errorMsg .= "\n" . $line;
                 }
