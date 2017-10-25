@@ -13,11 +13,15 @@
             <mj-section full-width="full-width" padding-bottom="30"></mj-section>
             [[*content]]
             <mj-section background-color="#333" padding-bottom="50">
-                <mj-column width="40%">
+                <mj-column vertical-align="middle" width="40%">
                     <mj-image width="200" src="[[++site_url]]assets/img/logo-inverted.png" align="left" />
                 </mj-column>
-                <mj-column width="60%">
+                <mj-column vertical-align="middle" width="45%">
+                    <mj-text padding-right="0" font-size="12" color="lightgrey" align="right">Share this content:</mj-text>
+                </mj-column>
+                <mj-column vertical-align="middle" width="15%">
                     <mj-social
+                            padding-left="0"
                             display="facebook twitter"
                             mode="horizontal"
                             text-mode="false"
