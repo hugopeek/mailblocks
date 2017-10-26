@@ -5,13 +5,52 @@
         <mj-font name="Montserrat" href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500" />
         <mj-attributes>
             <mj-all font-family="Montserrat, Helvetica, Arial, sans-serif" />
-            <mj-text font-weight="400" font-size="16" color="#000000" line-height="24px" />
+            <mj-text
+                    font-family="Montserrat, Helvetica, Arial, sans-serif"
+                    font-weight="400"
+                    font-size="16"
+                    color="#000000"
+                    line-height="24px"
+            />
         </mj-attributes>
+        <mj-style>
+            @media all and (max-width: 480px) {
+                *[style*='right'],
+                *[align*='right'] {
+                    text-align: center !important;
+                }
+            }
+        </mj-style>
     </mj-head>
     <mj-body>
         <mj-container background-color="#eee">
             <mj-section full-width="full-width" padding-bottom="30"></mj-section>
+
+            <mj-section background-color="#fff">
+                <mj-column vertical-align="middle" width="40%">
+                    <mj-image
+                            width="200"
+                            src="[[++site_url]]assets/img/logo.png"
+                            href="[[++site_url]]?ref=[[+alias]]"
+                            align="left"
+                    />
+                </mj-column>
+                <mj-column vertical-align="middle" width="45%">
+                    <mj-text padding-right="0" font-size="12" color="lightgrey" align="right">Share this content:</mj-text>
+                </mj-column>
+                <mj-column vertical-align="middle" width="15%">
+                    <mj-social
+                            padding-left="0"
+                            display="facebook twitter"
+                            mode="horizontal"
+                            text-mode="false"
+                            align="right"
+                    />
+                </mj-column>
+            </mj-section>
+
             [[*content]]
+
             <mj-section background-color="#333" padding-bottom="50">
                 <mj-column vertical-align="middle" width="40%">
                     <mj-image width="200" src="[[++site_url]]assets/img/logo-inverted.png" align="left" />

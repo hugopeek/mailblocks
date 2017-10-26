@@ -2,10 +2,10 @@
             background-url="[[+background_image]]"
             background-size="cover"
             background-repeat="no-repeat">
-    <mj-column width="70%">
+    <mj-column width="60%">
         [[+col_1]]
     </mj-column>
-    <mj-column width="30%">
+    <mj-column width="40%">
         [[+col_2]]
     </mj-column>
 </mj-section>
