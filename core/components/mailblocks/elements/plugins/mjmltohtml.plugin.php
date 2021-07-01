@@ -1,12 +1,11 @@
 <?php
-/*
+/**
  * Resource is parsed based on the code in the SaveProcessedContent gist by:
  *
  * @author @theboxer
  * @comments @sepiariver
  *
  * https://gist.github.com/sepiariver/a7d6fdc89e2050334086
- *
  */
 
 $htmlPath = $modx->getOption('htmlPath', null, MODX_BASE_PATH . '_newsletter/');
@@ -14,7 +13,7 @@ $fileName = $modx->resource->get('alias') . '.html';
 
 switch ($modx->event->name) {
     case 'OnDocFormSave':
-        if ($resource->get('content_type') == $scriptProperties['contentTypes']) {
+        if ($resource->get('content_type') == $scriptProperties['contentType']) {
 
             //$resource = $resource->get('content');
 
@@ -55,10 +54,11 @@ switch ($modx->event->name) {
 
             // Report any validation errors in log
             if (array_filter($output)) {
+                $error = "";
                 foreach ($output as $line) {
-                    $errorMsg .= "\n" . $line;
+                    $error .= "\n" . $line;
                 }
-                return (" MJML validation failed:" . $errorMsg);
+                return (" MJML validation failed:" . $error);
             }
         }
 

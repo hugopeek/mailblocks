@@ -9,7 +9,7 @@ _build/node_modules/
 
 # Vendors folder #
 ##################
-core/components/svgsanitizer/vendor/
+core/components/mailblocks/vendor/
 
 # Packages #
 ############

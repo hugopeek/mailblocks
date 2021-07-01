@@ -1,9 +1,9 @@
 {
     "name": "MailBlocks",
     "lowCaseName": "mailblocks",
-    "description": "Build responsive email templates with MODX and ContentBlocks. This extra uses the MJML templating system: https://mjml.io and requires NodeJS to be installed on your server.",
+    "description": "Build responsive email templates with MODX and ContentBlocks. This extra uses the MJML templating system (https://mjml.io) and requires NodeJS to be installed on your server.",
     "author": "Hugo Peek",
-    "version": "0.1.0",
+    "version": "0.2.0",
 
     "package": {
         "elements": {
@@ -11,6 +11,18 @@
                 {
                     "name": "mbSectionSingleColumn",
                     "description": "A layout segment for your email template, 100% wide.",
+                    "category": "mb_sections"
+                },{
+                    "name": "mbSectionTwoColumns",
+                    "description": "To equal width columns.",
+                    "category": "mb_sections"
+                },{
+                    "name": "mbSectionThreeColumns",
+                    "description": "Three equal width columns.",
+                    "category": "mb_sections"
+                },{
+                    "name": "mbSectionFourColumns",
+                    "description": "Four equal width columns.",
                     "category": "mb_sections"
                 },{
                     "name": "mbSectionContentSidebar",
@@ -21,45 +33,29 @@
                     "description": "A sidebar that is adjustable in width, plus a content area.",
                     "category": "mb_sections"
                 },{
-                    "name": "mbSectionFourColumns",
-                    "description": "Four equal width columns.",
-                    "category": "mb_sections"
-                },{
-                    "name": "mbSectionThreeColumns",
-                    "description": "Three equal width columns.",
-                    "category": "mb_sections"
-                },{
-                    "name": "mbSectionTwoColumns",
-                    "description": "To equal width columns.",
-                    "category": "mb_sections"
-                },{
                     "name": "mbContentHeader",
                     "description": "A simple heading text.",
-                    "category": "mb_components"
+                    "category": "mb_content"
                 },{
                     "name": "mbContentText",
                     "description": "Regular content copy, coming from a rich text field.",
-                    "category": "mb_components"
+                    "category": "mb_content"
                 },{
                     "name": "mbContentButton",
                     "description": "Links to places outside of the email. Can optionally contain a tracking URL.",
-                    "category": "mb_components"
+                    "category": "mb_content"
                 },{
                     "name": "mbContentImage",
                     "description": "An fixed width image, with a full URI to its source.",
-                    "category": "mb_components"
-                },{
-                    "name": "mbContentIcon",
-                    "description": "An fixed width icon, with a full URI to its source.",
-                    "category": "mb_components"
+                    "category": "mb_content"
                 },{
                     "name": "mbContentSocial",
                     "description": "A row of social media icons. You can choose which channels to display (or hide).",
-                    "category": "mb_components"
+                    "category": "mb_content"
                 },{
                     "name": "mbContentDivider",
                     "description": "A horizontal line for dividing content inside a section.",
-                    "category": "mb_components"
+                    "category": "mb_content"
                 }
             ],
 
@@ -78,15 +74,20 @@
             "plugins": [
                 {
                     "name": "mjmlToHTML",
-                    "description": "This plugin executes a shell command on your webserver that transforms the MJML syntax of your email into HTML. Requires NodeJS and MJML to be installed, and the PHP exec() function to be available.",
-                    "events": ["OnDocFormSave"],
+                    "description": "Execute a shell command to transform the MJML syntax into HTML. Requires NodeJS and MJML to be installed, and the PHP exec() function to be available on the server.",
                     "properties": [
                         {
-                            "name": "contentTypes",
+                            "name": "contentType",
                             "value": ""
                         },{
                             "name": "htmlPath",
                             "value": ""
+                        }
+                    ],
+                    "events": [
+                        {
+                            "event": "OnDocFormSave",
+                            "priority": 20
                         }
                     ]
                 }
@@ -96,7 +97,7 @@
                 {
                     "name": "mb_sections"
                 },{
-                    "name": "mb_components"
+                    "name": "mb_content"
                 }
             ]
         },
