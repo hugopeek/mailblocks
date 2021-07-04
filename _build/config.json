@@ -10,51 +10,67 @@
             "chunks": [
                 {
                     "name": "mbSectionSingleColumn",
-                    "description": "A layout segment for your email template, 100% wide.",
+                    "description": "A full-width layout segment.",
                     "category": "mb_sections"
                 },{
                     "name": "mbSectionTwoColumns",
-                    "description": "To equal width columns.",
+                    "description": "A segment with two equal width columns.",
                     "category": "mb_sections"
                 },{
                     "name": "mbSectionThreeColumns",
-                    "description": "Three equal width columns.",
+                    "description": "A segment with three equal width columns.",
                     "category": "mb_sections"
                 },{
                     "name": "mbSectionFourColumns",
-                    "description": "Four equal width columns.",
+                    "description": "A segment with four equal width columns.",
                     "category": "mb_sections"
                 },{
                     "name": "mbSectionContentSidebar",
-                    "description": "A content area, followed by an adjustable width sidebar.",
+                    "description": "A content area, followed by an adjustable sidebar.",
                     "category": "mb_sections"
                 },{
                     "name": "mbSectionSidebarContent",
                     "description": "A sidebar that is adjustable in width, plus a content area.",
                     "category": "mb_sections"
                 },{
-                    "name": "mbContentHeader",
+                    "name": "mbContentHeading",
                     "description": "A simple heading text.",
                     "category": "mb_content"
                 },{
                     "name": "mbContentText",
-                    "description": "Regular content copy, coming from a rich text field.",
+                    "description": "Regular content copy, managed inside a rich text field.",
                     "category": "mb_content"
                 },{
                     "name": "mbContentButton",
-                    "description": "Links to places outside of the email. Can optionally contain a tracking URL.",
+                    "description": "Link to places outside of the email. Can optionally contain a tracking URL (from your sending tool of choice).",
                     "category": "mb_content"
                 },{
                     "name": "mbContentImage",
-                    "description": "An fixed width image, with a full URI to its source.",
+                    "description": "A fixed width image, with a full URI to its source and (optionally) an external link.",
                     "category": "mb_content"
                 },{
-                    "name": "mbContentSocial",
-                    "description": "A row of social media icons. You can choose which channels to display (or hide).",
+                    "name": "mbContentQuote",
+                    "description": "Highlight powerful words from people much wiser than us.",
+                    "category": "mb_content"
+                },{
+                    "name": "mbContentSocialConnect",
+                    "description": "A row of icons linking to your social media channels. You can choose which channels to display.",
+                    "category": "mb_content"
+                },{
+                    "name": "mbContentSocialShare",
+                    "description": "A row social media icons for sharing your content. You can choose which options to display.",
                     "category": "mb_content"
                 },{
                     "name": "mbContentDivider",
                     "description": "A horizontal line for dividing content inside a section.",
+                    "category": "mb_content"
+                },{
+                    "name": "mbContentAccordion",
+                    "description": "Hide content inside expandable containers, for a better reading experience on smaller screens.",
+                    "category": "mb_content"
+                },{
+                    "name": "mbContentAccordionRow",
+                    "description": "Row template for each section inside the accordion.",
                     "category": "mb_content"
                 }
             ],
