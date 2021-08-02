@@ -106,6 +106,10 @@
                             "priority": 20
                         }
                     ]
+                },{
+                    "name": "mbLexiconMgr",
+                    "description": "Load MailBlocks lexicon in MODX manager.",
+                    "events": ["OnDocFormRender"]
                 }
             ],
 
