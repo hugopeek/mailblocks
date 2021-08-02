@@ -3,7 +3,7 @@
     "lowCaseName": "mailblocks",
     "description": "Build responsive email templates with MODX and ContentBlocks. This extra uses the MJML templating system (https://mjml.io) and requires NodeJS to be installed on your server.",
     "author": "Hugo Peek",
-    "version": "0.2.0",
+    "version": "0.2.1",
 
     "package": {
         "elements": {
