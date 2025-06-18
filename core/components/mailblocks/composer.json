@@ -1,0 +1,26 @@
+{
+    "name": "fractalfarming/mailblocks",
+    "description": "Build responsive email templates with MODX and ContentBlocks.",
+    "minimum-stability": "stable",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "hugopeek",
+            "email": "hugo@fractal-farming.com"
+        }
+    ],
+    "config": {
+        "platform": {
+            "php": "8.2"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "FractalFarming\\MailBlocks\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">=8.2",
+        "spatie/mjml-php": "^1.2"
+    }
+}

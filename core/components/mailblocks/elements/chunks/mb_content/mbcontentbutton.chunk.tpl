@@ -1,5 +1,5 @@
-<mj-button background-color="[[+background_color:default=`#fff`]]"
-           color="#222"
+<mj-button background-color="[[++theme_color_primary]]"
+           color="#fff"
            href="[[+link]]">
     [[+button_text]]
 </mj-button>

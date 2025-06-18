@@ -3,9 +3,9 @@
             background-size="cover"
             background-repeat="no-repeat">
     <mj-column width="60%">
-        [[+col_1]]
+        [[+main]]
     </mj-column>
     <mj-column width="40%">
-        [[+col_2]]
+        [[+sidebar]]
     </mj-column>
 </mj-section>

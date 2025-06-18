@@ -1,68 +1,60 @@
 <?php
 /**
- * Resource is parsed based on the code in the SaveProcessedContent gist by:
+ * mjmlToHTML plugin
  *
- * @author @theboxer
- * @comments @sepiariver
+ * @var modX $modx
+ * @var array $scriptProperties
  *
- * https://gist.github.com/sepiariver/a7d6fdc89e2050334086
+ * @package mailblocks
  */
 
-$htmlPath = $modx->getOption('htmlPath', null, MODX_BASE_PATH . '_newsletter/');
-$fileName = $modx->resource->get('alias') . '.html';
+use Spatie\Mjml\Mjml;
+use Spatie\Mjml\Exceptions;
 
 switch ($modx->event->name) {
-    case 'OnDocFormSave':
-        if ($resource->get('content_type') == $scriptProperties['contentType']) {
+    // Use HTML mime type when viewed as a web page
+    // Based on: https://github.com/GoldCoastMedia/modx-xhtml-mime-switch
+    case 'OnLoadWebDocument':
+        $resource = &$modx->resource;
 
-            //$resource = $resource->get('content');
-
-            //$tvName = $modx->getOption('tvName', $scriptProperties, 'processedContent', true);
-            //$processTemplate = $modx->getOption('processTemplate', $scriptProperties, false);
-
-
-            // Assign values from event parameters
-            $modx->resource = $resource;
-            $modx->resourceIdentifier = $resource->get('id');
-            $modx->elementCache = array();
-
-            // Parse the MODX resource, template included
-            $resourceOutput = $modx->resource->process();
-            $modx->parser->processElementTags('', $resourceOutput, true, false, '[[', ']]', array(), $maxIterations);
-            $modx->parser->processElementTags('', $resourceOutput, true, true, '[[', ']]', array(), $maxIterations);
-
-
-            // Save parsed resource to temporary file
-            $tempFile = tempnam(sys_get_temp_dir(), 'mjml_');
-            //chmod($tempFile, 0644);
-
-            $handle = fopen($tempFile, 'w');
-            fwrite($handle, $resourceOutput);
-
-            //$modx->log(modX::LOG_LEVEL_ERROR, 'Temp file "' . $tempFile . '"" created at ' . sys_get_temp_dir() );
-
-
-            // Validate the MJML syntax
-            $output = array();
-            exec('mjml --validate ' . escapeshellarg($tempFile) . ' 2>&1', $output, $return_value);
-
-            // Output the HTML
-            exec('mjml -r ' . escapeshellarg($tempFile) . ' -o ' . escapeshellarg($htmlPath . $fileName));
-
-            fclose($handle);
-            unlink($tempFile); // this removes the file
-
-            // Report any validation errors in log
-            if (array_filter($output)) {
-                $error = "";
-                foreach ($output as $line) {
-                    $error .= "\n" . $line;
-                }
-                return (" MJML validation failed:" . $error);
-            }
+        // Make sure content is MJML
+        if ($resource->get('content_type') !== 10) {
+            break;
         }
+
+        // Display as HTML
+        $resource->ContentType->set('mime_type', 'text/html');
+        break;
+
+    // Process MJML
+    case 'OnWebPagePrerender':
+        // Make sure content is MJML
+        if ($modx->resource->get('content_type') !== 10) {
+            break;
+        }
+
+        // Cached output already includes processed MJML
+        $cacheManager = $modx->getCacheManager();
+        $cacheElementKey = '/mjml';
+        $cacheOptions = [
+            xPDO::OPT_CACHE_KEY => 'resource/' . $modx->resource->getCacheKey()
+        ];
+        $cachedOutput = $cacheManager->get($cacheElementKey, $cacheOptions);
+        if ($cachedOutput) {
+            $modx->resource->_output = $cachedOutput;
+            break;
+        }
+
+        $output = &$modx->resource->_output;
+
+        try {
+            $html = Mjml::new()->toHtml($output);
+            $output = $html;
+        } catch (Exception $e) {
+            $output = $e->getMessage();
+        }
+
+        $modx->cacheManager->set($cacheElementKey, $output, 0, $cacheOptions);
 
         break;
 }
-
-return;

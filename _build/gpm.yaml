@@ -1,0 +1,78 @@
+name: MailBlocks
+lowCaseName: mailblocks
+description: 'Build responsive email templates with MODX and ContentBlocks.'
+author: 'Hugo Peek'
+version: 0.2.1
+build:
+  readme: core/components/mailblocks/docs/readme.md
+  license: core/components/mailblocks/docs/license.md
+  changelog: core/components/mailblocks/docs/changelog.md
+chunks:
+  - name: mbSectionSingleColumn
+    description: 'A full-width layout segment.'
+    category: mb_sections
+  - name: mbSectionTwoColumns
+    description: 'A segment with two equal width columns.'
+    category: mb_sections
+  - name: mbSectionThreeColumns
+    description: 'A segment with three equal width columns.'
+    category: mb_sections
+  - name: mbSectionFourColumns
+    description: 'A segment with four equal width columns.'
+    category: mb_sections
+  - name: mbSectionContentSidebar
+    description: 'A content area, followed by an adjustable sidebar.'
+    category: mb_sections
+  - name: mbSectionSidebarContent
+    description: 'A sidebar that is adjustable in width, plus a content area.'
+    category: mb_sections
+  - name: mbContentHeading
+    description: 'A simple heading text.'
+    category: mb_content
+  - name: mbContentText
+    description: 'Regular content copy, managed inside a rich text field.'
+    category: mb_content
+  - name: mbContentButton
+    description: 'Link to places outside of the email. Can optionally contain a tracking URL (from your sending tool of choice).'
+    category: mb_content
+  - name: mbContentImage
+    description: 'A fixed width image, with a full URI to its source and (optionally) an external link.'
+    category: mb_content
+  - name: mbContentQuote
+    description: 'Highlight powerful words from people much wiser than us.'
+    category: mb_content
+  - name: mbContentSocialConnect
+    description: 'A row of icons linking to your social media channels. You can choose which channels to display.'
+    category: mb_content
+  - name: mbContentSocialShare
+    description: 'A row social media icons for sharing your content. You can choose which options to display.'
+    category: mb_content
+  - name: mbContentDivider
+    description: 'A horizontal line for dividing content inside a section.'
+    category: mb_content
+  - name: mbContentAccordion
+    description: 'Hide content inside expandable containers, for a better reading experience on smaller screens.'
+    category: mb_content
+  - name: mbContentAccordionRow
+    description: 'Row template for each section inside the accordion.'
+    category: mb_content
+templates:
+  - name: mbCampaign
+    icon: icon-newspaper-o
+  - name: mbTransactional
+    icon: icon-send
+plugins:
+  - name: mjmlToHTML
+    description: 'Execute a shell command to transform the MJML syntax into HTML. Requires NodeJS and MJML to be installed, and the PHP exec() function to be available on the server.'
+    properties:
+      - name: contentType
+        value: ''
+      - name: htmlPath
+        value: ''
+    events:
+      - name: OnDocFormSave
+        priority: 20
+categories:
+  - name: mb_sections
+  - name: mb_content
+
